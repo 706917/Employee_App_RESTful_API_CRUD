@@ -20,8 +20,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import alex.lab.employeemanagement.exception.ResourceNotFoundException;
@@ -29,7 +27,8 @@ import alex.lab.employeemanagement.model.Employee;
 import alex.lab.employeemanagement.repository.EmployeeRepository;
 
 
-@RestController @CrossOrigin(origins = "http://127.0.0.1:8080")
+@CrossOrigin(origins = "http://127.0.0.1:8080")
+@RestController 
 @RequestMapping("/api/v1")
 public class EmployeeController {
 	
@@ -59,7 +58,7 @@ public class EmployeeController {
 	}
 	
 	// Update employee
-	@PutMapping("employee/{id}")
+	@PutMapping("employees/{id}")
 	public ResponseEntity<Employee> updateEmployee(@Valid @RequestBody Employee employeeDetails, @PathVariable(value="id") Long employeeId) 
 		throws ResourceNotFoundException{
 		
